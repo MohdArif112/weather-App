@@ -16,6 +16,8 @@ searchInputBox.addEventListener("keypress", (event)=>{
 
         console.log(searchInputBox.value);
         getWeatherReport(searchInputBox.value);
+         let weatherDisplay =document.querySelector(".weather-body");
+         weatherDisplay.style.display= "block";
     }
 })
 
@@ -34,6 +36,7 @@ function getWeatherReport(city) {
 
 
 function showWeatherReport(weather){
+  
     console.log(weather);
 
     let city = document.getElementById("city");
@@ -60,7 +63,7 @@ function showWeatherReport(weather){
     //settimf images according to city waether
 
     if(weatherType.textContent =='Clear'){
-        document.body.style.backgroundImage="url('images/clear.jpg')"
+        document.body.style.backgroundImage="url('images/clear-weather-image.jpg')"
     }
     if(weatherType.textContent =='Clouds'){
         document.body.style.backgroundImage="url('images/cloudy-weather-image.jpg')"
@@ -73,6 +76,9 @@ function showWeatherReport(weather){
     }
     if(weatherType.textContent =='Thunderstrom'){
         document.body.style.backgroundImage="url('images/thunderstrom.jpg')"
+    }
+    if(weatherType.textContent =='Haze'){
+        document.body.style.backgroundImage="url('images/Haze.jpg')"
     }
 
 }
