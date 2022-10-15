@@ -47,7 +47,7 @@ function showWeatherReport(weather){
 
 
     let minMaxTemp= document.getElementById("min-max");
-    minMaxTemp.innerHTML = `${Math.floor(weather.main.temp_min)} &deg;c (min)/ ${Math.ceil(weather.main.temp_max)} &deg;c`; 
+    minMaxTemp.innerHTML = `${Math.floor(weather.main.temp_min)} &deg;c (min)/ ${Math.ceil(weather.main.temp_max)} &deg;c (max)`; 
 
 
 
