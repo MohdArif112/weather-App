@@ -40,9 +40,55 @@ function showWeatherReport(weather){
     city.innerText= `${weather.name},${weather.sys.country}`;
 
     let temp = document.getElementById("temp");
-    temp.innerText=`${Math.round(weather.main.temp)}&deg;c`;
+    temp.innerHTML=`${Math.round(weather.main.temp)}&deg;C`;
+
+
+    let minMaxTemp= document.getElementById("min-max");
+    minMaxTemp.innerHTML = `${Math.floor(weather.main.temp_min)} &deg;c (min)/ ${Math.ceil(weather.main.temp_max)} &deg;c`; 
+
+
+
+    let weatherType = document.getElementById("weather");
+    // weatherType.innerText = "Rain";
+    weatherType.innerText = `${weather.weather[0].main}`; 
+
+
+    let date = document.getElementById("date");
+    let todayDate =new Date();
+    date.innerText = dateManage(todayDate);
+
+    //settimf images according to city waether
+
+    if(weatherType.textContent =='Clear'){
+        document.body.style.backgroundImage="url('images/clear.jpg')"
+    }
+    if(weatherType.textContent =='Clouds'){
+        document.body.style.backgroundImage="url('images/cloudy-weather-image.jpg')"
+    }
+    if(weatherType.textContent =='Rain'){
+        document.body.style.backgroundImage="url('images/rainy-weather-image.jpg')"
+    }
+    if(weatherType.textContent =='Mist'){
+        document.body.style.backgroundImage="url('images/mist.jpg')"
+    }
+    if(weatherType.textContent =='Thunderstrom'){
+        document.body.style.backgroundImage="url('images/thunderstrom.jpg')"
+    }
+
 }
 // date manage
 
+function dateManage(date){
+    let days =["Sunday","Monday","tuesday","Wednwsday","Thursdar","Friday","Saturday"];
 
+    let months =  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    let year = date.getFullYear();
+    let month = months[date.getMonth()];
+    let dateshow = date.getDate();
+
+    let day= days[date.getDay()];
+
+    return `${dateshow} ${month} (${day}), ${year}`;
+}
 
